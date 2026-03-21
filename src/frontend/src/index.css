@@ -149,3 +149,32 @@
     background-color: oklch(0.3 0.12 28);
   }
 }
+
+/* Hero Section Animations */
+@keyframes hero-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.12;
+    transform: scale(1) translate(-50%, -50%);
+  }
+  50% {
+    opacity: 0.22;
+    transform: scale(1.15) translate(-50%, -50%);
+  }
+}
+
+.hero-glow-orb {
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.18) 0%,
+    transparent 70%
+  );
+  top: 45%;
+  left: 20%;
+  transform-origin: 0 0;
+  animation: hero-glow-pulse 6s ease-in-out infinite;
+  pointer-events: none;
+}

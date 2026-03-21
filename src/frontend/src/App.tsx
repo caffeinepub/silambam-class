@@ -29,9 +29,9 @@ export default function App() {
             <EssenceSection />
             <MastersDeskSection />
             <BranchesSection />
+            <SocialSection />
             <AchievementsSection />
             <GallerySection />
-            <SocialSection />
             <ContactSection />
           </main>
           <Footer />

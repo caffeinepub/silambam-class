@@ -4,6 +4,7 @@ import { SiInstagram, SiYoutube } from "react-icons/si";
 export default function SocialSection() {
   return (
     <section
+      id="social"
       className="py-16"
       style={{ backgroundColor: "oklch(0.93 0.03 75)" }}
     >

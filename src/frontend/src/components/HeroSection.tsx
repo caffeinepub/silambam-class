@@ -13,7 +13,7 @@ export default function HeroSection() {
     <section
       id="home"
       className="hero-section relative overflow-hidden"
-      style={{ height: "100vh", minHeight: "600px" }}
+      style={{ minHeight: "100vh" }}
     >
       {/* Background image */}
       <div
@@ -60,7 +60,7 @@ export default function HeroSection() {
       <div className="hero-glow-orb absolute" />
 
       {/* Content */}
-      <div className="relative h-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex items-center">
+      <div className="relative min-h-screen max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex items-start sm:items-center pt-24 pb-16 sm:py-20">
         {/* Vertical golden accent line - desktop only */}
         <motion.div
           initial={{ scaleY: 0, opacity: 0 }}
@@ -76,7 +76,7 @@ export default function HeroSection() {
           }}
         />
 
-        <div className="max-w-2xl lg:pl-10 py-20">
+        <div className="max-w-2xl lg:pl-10">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -84,7 +84,7 @@ export default function HeroSection() {
             transition={{ duration: 0.7 }}
           >
             <span
-              className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.3em] uppercase mb-5 px-4 py-2 rounded-full"
+              className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.3em] uppercase mb-4 px-4 py-2 rounded-full"
               style={{
                 background: "rgba(255, 215, 0, 0.12)",
                 color: "#FFD700",
@@ -111,7 +111,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, scaleX: 0 }}
             animate={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="mb-5"
+            className="mb-4"
             style={{ transformOrigin: "left" }}
           >
             <div
@@ -129,7 +129,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, delay: 0.2, ease: "easeOut" }}
-            className="font-heading font-bold uppercase text-white mb-4"
+            className="font-heading font-bold uppercase text-white mb-3"
             style={{
               fontSize: "clamp(2.5rem, 5vw, 5rem)",
               lineHeight: 1.1,
@@ -160,7 +160,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.38 }}
-            className="font-bold tracking-[0.25em] uppercase mb-6"
+            className="font-bold tracking-[0.25em] uppercase mb-4"
             style={{
               fontSize: "clamp(0.8rem, 1.5vw, 1rem)",
               color: "#FFD700",
@@ -175,9 +175,9 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-gray-300 leading-relaxed mb-10"
+            className="text-gray-300 leading-relaxed mb-6"
             style={{
-              fontSize: "clamp(0.95rem, 1.3vw, 1.1rem)",
+              fontSize: "clamp(0.9rem, 1.3vw, 1.1rem)",
               maxWidth: "480px",
               textShadow: "0 1px 6px rgba(0,0,0,0.5)",
             }}
@@ -192,13 +192,13 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.62 }}
-            className="flex flex-col sm:flex-row flex-wrap gap-4"
+            className="flex flex-col sm:flex-row flex-wrap gap-3"
           >
             <button
               type="button"
               data-ocid="hero.primary_button"
               onClick={() => scrollTo("#classes")}
-              className="px-8 py-3.5 rounded-full font-bold text-sm uppercase tracking-widest transition-all duration-200 hover:scale-105 active:scale-95"
+              className="px-6 py-3 rounded-full font-bold text-sm uppercase tracking-widest transition-all duration-200 hover:scale-105 active:scale-95"
               style={{
                 background: "linear-gradient(135deg, #FFD700, #e6b800)",
                 color: "#0a0a0a",
@@ -211,7 +211,7 @@ export default function HeroSection() {
               type="button"
               data-ocid="hero.secondary_button"
               onClick={() => scrollTo("#about")}
-              className="px-8 py-3.5 rounded-full font-bold text-sm uppercase tracking-widest border-2 text-white transition-all duration-200 hover:bg-white/10 hover:scale-105 active:scale-95"
+              className="px-6 py-3 rounded-full font-bold text-sm uppercase tracking-widest border-2 text-white transition-all duration-200 hover:bg-white/10 hover:scale-105 active:scale-95"
               style={{ borderColor: "rgba(255,255,255,0.55)" }}
             >
               LEARN MORE
@@ -221,7 +221,7 @@ export default function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
               data-ocid="hero.admissions_button"
-              className="inline-block px-8 py-3.5 rounded-full font-bold text-sm uppercase tracking-widest border-2 border-white transition-all duration-200 hover:scale-105 active:scale-95 text-center"
+              className="inline-block px-6 py-3 rounded-full font-bold text-sm uppercase tracking-widest border-2 border-white transition-all duration-200 hover:scale-105 active:scale-95 text-center"
               style={{
                 background: "linear-gradient(135deg, #FFD700, #ffc200)",
                 color: "#0a0a0a",

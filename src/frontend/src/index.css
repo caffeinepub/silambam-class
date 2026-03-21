@@ -91,6 +91,11 @@
   h6 {
     @apply font-heading;
   }
+
+  /* Offset sections so sticky navbar doesn't cover them */
+  section[id] {
+    scroll-margin-top: 68px;
+  }
 }
 
 @layer utilities {

@@ -23,9 +23,7 @@ export default function Navbar() {
     const id = href.replace("#", "");
     const el = document.getElementById(id);
     if (el) {
-      const navHeight = 64;
-      const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
-      window.scrollTo({ top, behavior: "smooth" });
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 

@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
+import { useGetAllGalleryPhotos } from "../hooks/useQueries";
+import { getBlobUrl } from "../utils/blobStorage";
 
-const galleryImages = [
+const staticGalleryImages = [
   {
     src: "/assets/generated/hero-silambam.dim_1400x700.jpg",
     alt: "Silambam training session",
@@ -34,6 +36,9 @@ const galleryImages = [
 ];
 
 export default function GallerySection() {
+  const { data: uploadedPhotos } = useGetAllGalleryPhotos();
+  const hasUploaded = uploadedPhotos && uploadedPhotos.length > 0;
+
   return (
     <section
       id="gallery"
@@ -61,38 +66,73 @@ export default function GallerySection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {galleryImages.map((img, i) => (
-            <motion.div
-              key={img.src}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: i * 0.1 }}
-              className={`relative overflow-hidden rounded-2xl group ${
-                img.wide ? "col-span-2 md:col-span-3" : ""
-              }`}
-              style={{ height: img.wide ? "300px" : "220px" }}
-            >
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end"
-                style={{
-                  background:
-                    "linear-gradient(to top, oklch(0.15 0.05 220 / 0.85) 0%, transparent 60%)",
-                }}
+        {hasUploaded ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {uploadedPhotos.map((photo, i) => (
+              <motion.div
+                key={photo.id.toString()}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: i * 0.08 }}
+                className="relative overflow-hidden rounded-2xl group"
+                style={{ height: "220px" }}
               >
-                <span className="p-4 text-white font-bold text-sm uppercase tracking-widest">
-                  {img.caption}
-                </span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                <img
+                  src={getBlobUrl(photo.blobId)}
+                  alt={photo.caption || "Gallery photo"}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                {photo.caption && (
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end"
+                    style={{
+                      background:
+                        "linear-gradient(to top, oklch(0.15 0.05 220 / 0.85) 0%, transparent 60%)",
+                    }}
+                  >
+                    <span className="p-4 text-white font-bold text-sm uppercase tracking-widest">
+                      {photo.caption}
+                    </span>
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {staticGalleryImages.map((img, i) => (
+              <motion.div
+                key={img.src}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: i * 0.1 }}
+                className={`relative overflow-hidden rounded-2xl group ${
+                  img.wide ? "col-span-2 md:col-span-3" : ""
+                }`}
+                style={{ height: img.wide ? "300px" : "220px" }}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end"
+                  style={{
+                    background:
+                      "linear-gradient(to top, oklch(0.15 0.05 220 / 0.85) 0%, transparent 60%)",
+                  }}
+                >
+                  <span className="p-4 text-white font-bold text-sm uppercase tracking-widest">
+                    {img.caption}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

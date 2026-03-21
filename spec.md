@@ -1,23 +1,29 @@
-# Silambam Class - Enrollment Admin View
+# Silambam Class
 
 ## Current State
-The site has a ContactSection with an enrollment form that saves name, email, phone, and message to the backend. The backend stores submissions and exposes `getAllSubmissions()`. There is no admin page yet to view these submissions. Routing is handled inline in App.tsx (no router library), and there is Internet Identity auth available.
+- Gallery section shows static placeholder images hardcoded in GallerySection.tsx
+- Admin panel at /admin shows enrollment submissions table
+- No way to upload or manage gallery photos from the admin panel
 
 ## Requested Changes (Diff)
 
 ### Add
-- An AdminPage component at route `/admin` that:
-  - Shows a login button (using Internet Identity via `useInternetIdentity`) if the user is not authenticated
-  - Shows a table of all enrollment submissions (name, email, phone, message) once logged in
-  - Has a logout button when logged in
-- Simple hash-based or pathname routing in App.tsx to show AdminPage when URL is `/admin`
+- Gallery photo upload in admin panel: logged-in admin can upload photos with a caption
+- Gallery photo delete in admin panel: admin can remove uploaded photos
+- Dynamic GallerySection: reads photos stored in blob-storage and displays them; falls back to placeholder images if no photos uploaded yet
 
 ### Modify
-- App.tsx to conditionally render AdminPage when `window.location.pathname === '/admin'` (or similar simple routing)
+- AdminPage.tsx: add a second tab/section for Gallery Management alongside Enrollment Submissions
+- GallerySection.tsx: fetch and display dynamically stored gallery photos
+- Backend: add gallery photo metadata storage (caption, blob reference) and CRUD endpoints
 
 ### Remove
-- Nothing
+- Nothing removed; static images remain as fallback only
 
 ## Implementation Plan
-1. Create `src/frontend/src/pages/AdminPage.tsx` -- login gate with Internet Identity, then table of submissions from `useGetAllSubmissions`
-2. Update `App.tsx` to render `AdminPage` when path is `/admin`
+1. Select blob-storage Caffeine component
+2. Update Motoko backend to store gallery photo metadata (id, caption, blobId) with add/remove/list endpoints
+3. Update AdminPage to have two tabs: Enrollment Submissions and Gallery Management
+4. Gallery Management tab: upload button (image picker + caption input), grid of uploaded photos with delete button each
+5. Update GallerySection.tsx to load photos from backend via blob-storage URLs; show static placeholders if none uploaded
+6. Wire useQueries hooks for gallery CRUD

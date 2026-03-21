@@ -10,16 +10,47 @@ import type { ActorMethod } from '@icp-sdk/core/agent';
 import type { IDL } from '@icp-sdk/core/candid';
 import type { Principal } from '@icp-sdk/core/principal';
 
-export interface ContactSubmission {
+export interface Input {
   'name' : string,
   'email' : string,
   'message' : string,
   'phone' : string,
 }
+export interface Input__1 { 'caption' : string, 'blobId' : string }
+export interface Output { 'id' : bigint, 'caption' : string, 'blobId' : string }
+export interface _CaffeineStorageCreateCertificateResult {
+  'method' : string,
+  'blob_hash' : string,
+}
+export interface _CaffeineStorageRefillInformation {
+  'proposed_top_up_amount' : [] | [bigint],
+}
+export interface _CaffeineStorageRefillResult {
+  'success' : [] | [boolean],
+  'topped_up_amount' : [] | [bigint],
+}
 export interface _SERVICE {
-  'getAllSubmissions' : ActorMethod<[], Array<ContactSubmission>>,
-  'getSubmission' : ActorMethod<[bigint], ContactSubmission>,
-  'submitForm' : ActorMethod<[string, string, string, string], undefined>,
+  '_caffeineStorageBlobIsLive' : ActorMethod<[Uint8Array], boolean>,
+  '_caffeineStorageBlobsToDelete' : ActorMethod<[], Array<Uint8Array>>,
+  '_caffeineStorageConfirmBlobDeletion' : ActorMethod<
+    [Array<Uint8Array>],
+    undefined
+  >,
+  '_caffeineStorageCreateCertificate' : ActorMethod<
+    [string],
+    _CaffeineStorageCreateCertificateResult
+  >,
+  '_caffeineStorageRefillCashier' : ActorMethod<
+    [[] | [_CaffeineStorageRefillInformation]],
+    _CaffeineStorageRefillResult
+  >,
+  '_caffeineStorageUpdateGatewayPrincipals' : ActorMethod<[], undefined>,
+  'addGalleryPhoto' : ActorMethod<[Input__1], string>,
+  'getAllContactSubmissions' : ActorMethod<[], Array<Input>>,
+  'getAllGalleryPhotos' : ActorMethod<[], Array<Output>>,
+  'getContactSubmission' : ActorMethod<[string], Input>,
+  'removeGalleryPhoto' : ActorMethod<[bigint], undefined>,
+  'submitForm' : ActorMethod<[Input], undefined>,
 }
 export declare const idlService: IDL.ServiceClass;
 export declare const idlInitArgs: IDL.Type[];

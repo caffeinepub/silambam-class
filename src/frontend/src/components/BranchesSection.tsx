@@ -8,7 +8,7 @@ const branches = [
     location: "Guduvancherry",
     city: "Tamil Nadu",
     mapsUrl: "https://maps.app.goo.gl/LkwWVSQDekFE26pQ6",
-    timing: "6 AM – 8 AM & 5 PM – 7 PM",
+    timing: "Thu & Sun 5:00 PM – 7:00 PM",
   },
   {
     id: 2,

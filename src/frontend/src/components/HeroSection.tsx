@@ -13,7 +13,7 @@ export default function HeroSection() {
     <section
       id="home"
       className="hero-section relative overflow-hidden"
-      style={{ minHeight: "100vh" }}
+      style={{ minHeight: "100svh", height: "auto" }}
     >
       {/* Background image */}
       <div
@@ -38,9 +38,16 @@ export default function HeroSection() {
             "radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.65) 100%)",
         }}
       />
-      {/* Strong left fade for text legibility */}
+      {/* Mobile: centered dark overlay. Desktop: strong left fade for text legibility */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 block lg:hidden"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(5,12,25,0.55) 0%, rgba(5,12,25,0.82) 100%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 hidden lg:block"
         style={{
           background:
             "linear-gradient(105deg, rgba(5,12,25,0.92) 0%, rgba(5,12,25,0.75) 40%, rgba(5,12,25,0.25) 70%, transparent 100%)",
@@ -60,7 +67,10 @@ export default function HeroSection() {
       <div className="hero-glow-orb absolute" />
 
       {/* Content */}
-      <div className="relative min-h-screen max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex items-start sm:items-center pt-24 pb-16 sm:py-20">
+      <div
+        className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex items-center lg:items-start pt-24 pb-28 sm:py-20"
+        style={{ minHeight: "100svh" }}
+      >
         {/* Vertical golden accent line - desktop only */}
         <motion.div
           initial={{ scaleY: 0, opacity: 0 }}
@@ -76,7 +86,7 @@ export default function HeroSection() {
           }}
         />
 
-        <div className="max-w-2xl lg:pl-10">
+        <div className="max-w-2xl text-center items-center mx-auto lg:text-left lg:mx-0 lg:pl-10">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -111,8 +121,8 @@ export default function HeroSection() {
             initial={{ opacity: 0, scaleX: 0 }}
             animate={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="mb-4"
-            style={{ transformOrigin: "left" }}
+            className="mb-4 flex justify-center lg:justify-start"
+            style={{ transformOrigin: "center" }}
           >
             <div
               style={{
@@ -175,7 +185,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-gray-300 leading-relaxed mb-6"
+            className="text-gray-300 leading-relaxed mb-6 mx-auto lg:mx-0"
             style={{
               fontSize: "clamp(0.9rem, 1.3vw, 1.1rem)",
               maxWidth: "480px",
@@ -192,7 +202,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.62 }}
-            className="flex flex-col sm:flex-row flex-wrap gap-3"
+            className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center lg:justify-start"
           >
             <button
               type="button"
@@ -234,21 +244,11 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0 h-14 overflow-hidden">
-        <svg
-          viewBox="0 0 1440 56"
-          fill="none"
-          preserveAspectRatio="none"
-          className="w-full h-full"
-          aria-hidden="true"
-        >
-          <path
-            d="M0 56L1440 56L1440 28C1200 0 960 56 720 28C480 0 240 56 0 28Z"
-            fill="oklch(0.93 0.03 75)"
-          />
-        </svg>
-      </div>
+      {/* Bottom straight transition */}
+      <div
+        className="absolute bottom-0 left-0 right-0"
+        style={{ height: "28px", backgroundColor: "oklch(0.93 0.03 75)" }}
+      />
     </section>
   );
 }

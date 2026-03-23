@@ -10,15 +10,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center font-heading font-bold text-lg"
-                style={{
-                  backgroundColor: "oklch(0.72 0.13 70)",
-                  color: "oklch(0.15 0.01 60)",
-                }}
+              <span
+                style={{ color: "oklch(0.72 0.13 70)", fontSize: "1.5rem" }}
               >
                 ⚔
-              </div>
+              </span>
               <div>
                 <div
                   className="font-heading font-bold text-sm uppercase tracking-widest"
@@ -45,6 +41,12 @@ export default function Footer() {
               of Silambam. Welcoming students aged 5 and above across multiple
               branches.
             </p>
+            <h4
+              className="font-bold text-xs uppercase tracking-widest mb-3"
+              style={{ color: "oklch(0.72 0.13 70)" }}
+            >
+              Get In Touch
+            </h4>
             <div
               className="flex items-center gap-2 text-sm mb-1"
               style={{ color: "oklch(0.70 0.02 220)" }}
@@ -53,7 +55,7 @@ export default function Footer() {
               <span>+91 98847 79225 (Master Govindhan.M)</span>
             </div>
             <div
-              className="flex items-center gap-2 text-sm"
+              className="flex items-center gap-2 text-sm mb-5"
               style={{ color: "oklch(0.70 0.02 220)" }}
             >
               <span>✉</span>

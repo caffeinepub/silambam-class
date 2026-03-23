@@ -1,4 +1,4 @@
-import { Quote } from "lucide-react";
+import { Phone, Quote } from "lucide-react";
 import { motion } from "motion/react";
 
 export default function MastersDeskSection() {
@@ -39,6 +39,53 @@ export default function MastersDeskSection() {
           </div>
 
           <div className="relative z-10">
+            {/* Master photo and info row */}
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8 mb-8">
+              {/* Photo */}
+              <div className="flex-shrink-0">
+                <img
+                  src="/assets/uploads/IMG-20260323-WA0000-1-1.jpg"
+                  alt="Master M. Govindhan"
+                  className="w-36 h-36 rounded-full object-cover border-4"
+                  style={{
+                    borderColor: "oklch(0.72 0.13 70)",
+                    boxShadow: "0 0 20px oklch(0.72 0.13 70 / 0.4)",
+                  }}
+                />
+              </div>
+
+              {/* Master details */}
+              <div className="text-center sm:text-left">
+                <div
+                  className="font-heading font-bold text-2xl sm:text-3xl mb-1"
+                  style={{ color: "oklch(0.72 0.13 70)" }}
+                >
+                  M. GOVINDHAN
+                </div>
+                <div className="text-white font-semibold text-base mb-1">
+                  Silambam &amp; Kalari Master
+                </div>
+                <div className="text-white/70 text-sm mb-2">
+                  Wise Secretary, Chengalpattu Silambatta Kazhagam
+                </div>
+                <div className="text-white/60 text-xs mb-3">
+                  Sri Nandhivarman Silambatta Kalari Kazhagam
+                </div>
+                <a
+                  href="tel:+919884779225"
+                  className="inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full"
+                  style={{
+                    backgroundColor: "oklch(0.72 0.13 70 / 0.15)",
+                    color: "oklch(0.72 0.13 70)",
+                    border: "1px solid oklch(0.72 0.13 70 / 0.4)",
+                  }}
+                >
+                  <Phone size={14} />
+                  9884779225
+                </a>
+              </div>
+            </div>
+
             <p
               className="text-lg sm:text-xl leading-relaxed mb-6 italic"
               style={{ color: "oklch(0.90 0.02 75)" }}
@@ -52,7 +99,7 @@ export default function MastersDeskSection() {
               ignite a lifelong love for our cultural heritage."
             </p>
             <p
-              className="text-base leading-relaxed mb-8"
+              className="text-base leading-relaxed"
               style={{ color: "oklch(0.75 0.02 220)" }}
             >
               "Every child who walks through our doors carries the potential to
@@ -62,32 +109,6 @@ export default function MastersDeskSection() {
               will keep this timeless tradition alive and thriving for
               generations to come."
             </p>
-
-            <div className="flex items-center gap-5">
-              <div
-                className="w-16 h-16 rounded-full flex items-center justify-center font-heading font-bold text-2xl flex-shrink-0"
-                style={{
-                  backgroundColor: "oklch(0.72 0.13 70)",
-                  color: "oklch(0.15 0.01 60)",
-                }}
-              >
-                G
-              </div>
-              <div>
-                <div
-                  className="font-heading font-bold text-lg"
-                  style={{ color: "oklch(0.72 0.13 70)" }}
-                >
-                  Master Govindhan.M
-                </div>
-                <div className="text-white/70 text-sm">
-                  Founder & Chief Instructor
-                </div>
-                <div className="text-white/60 text-xs mt-0.5">
-                  Sri Nandhivarman Silambatta Kalari Kazhagam
-                </div>
-              </div>
-            </div>
           </div>
         </motion.div>
       </div>

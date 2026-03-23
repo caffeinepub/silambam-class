@@ -20,27 +20,43 @@ const branches = [
   },
   {
     id: 3,
-    name: "Branch 3",
-    location: "Contact for location",
+    name: "Mahalakshmi Nagar Branch",
+    location: "Mahalakshmi Nagar",
     city: "Tamil Nadu",
     mapsUrl: null,
-    timing: "6 AM – 8 AM & 5 PM – 7 PM",
+    timing: "Thu 6:00 AM – 8:00 AM & Sun 4:00 PM – 6:00 PM",
   },
   {
     id: 4,
-    name: "Branch 4",
-    location: "Contact for location",
+    name: "Nandhivaram Branch",
+    location: "Nandhivaram",
     city: "Tamil Nadu",
     mapsUrl: null,
-    timing: "6 AM – 8 AM & 5 PM – 7 PM",
+    timing: "Mon, Wed & Sat 6:00 AM – 7:30 AM",
   },
   {
     id: 5,
-    name: "Branch 5",
-    location: "Contact for location",
+    name: "Sambavi Apartment Branch",
+    location: "Sambavi Apartment",
     city: "Tamil Nadu",
     mapsUrl: null,
-    timing: "6 AM – 8 AM & 5 PM – 7 PM",
+    timing: "Tue & Sat 5:00 PM – 6:30 PM",
+  },
+  {
+    id: 6,
+    name: "Thirthaveli Branch",
+    location: "Thirthaveli",
+    city: "Tamil Nadu",
+    mapsUrl: null,
+    timing: "Mon & Wed 5:00 PM – 7:00 PM",
+  },
+  {
+    id: 7,
+    name: "Shriram Shankari Branch",
+    location: "Shriram Shankari",
+    city: "Tamil Nadu",
+    mapsUrl: null,
+    timing: "Tue & Fri 5:00 PM – 6:30 PM",
   },
 ];
 
@@ -156,7 +172,7 @@ export default function BranchesSection() {
                     style={{ color: "oklch(0.38 0.12 28)" }}
                   />
                   <p className="text-sm text-foreground/80">
-                    Age: 5+ &nbsp;|&nbsp; 2 Classes/Week
+                    Age: 5+ &nbsp;|&nbsp; Classes/Week
                   </p>
                 </div>
               </div>
@@ -181,39 +197,6 @@ export default function BranchesSection() {
               </div>
             </motion.div>
           ))}
-
-          {/* Coming Soon card */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="rounded-2xl p-7 shadow-card border-2 border-dashed flex flex-col items-center justify-center text-center"
-            style={{
-              borderColor: "oklch(0.72 0.13 70 / 0.4)",
-              backgroundColor: "oklch(0.95 0.025 75)",
-            }}
-          >
-            <div
-              className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mb-3"
-              style={{
-                backgroundColor: "oklch(0.72 0.13 70 / 0.15)",
-                color: "oklch(0.72 0.13 70)",
-              }}
-            >
-              +
-            </div>
-            <h3
-              className="font-heading font-bold text-lg uppercase mb-2"
-              style={{ color: "oklch(0.25 0.05 220)" }}
-            >
-              More Branches
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              Expanding to more locations soon. Contact us to open a branch in
-              your area.
-            </p>
-          </motion.div>
         </div>
       </div>
     </section>
